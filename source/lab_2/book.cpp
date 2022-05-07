@@ -33,6 +33,7 @@ class Book {
 	public:
 		void inputData();
 		void outputData();
+		float totalPrice(float);
 };
 
 Book::Book() {
@@ -66,7 +67,12 @@ void Book::outputData() {
 	cout << "Ma sach: " << idBook << endl;
 	cout << "Nha xuat ban: " << publishCompany << endl;
 	cout << "So trang: " << numberOfPage << endl;
-	cout << "Gia tien: " << price << endl;
+	cout << "Gia tien: " << price << " VND" << endl;
+	cout << "Gia tien sau thue VAT: " << totalPrice(price) << " VND";
+}
+
+float Book::totalPrice(float p) {
+	return p + (p * 0.1);
 }
 
 int main () {

@@ -78,15 +78,16 @@ AirCondition AirCondition::powerCompare(AirCondition airCondition1, AirCondition
 
 //hien thi san pham duoc chon
 void AirCondition::showDataProductSelect(int numOfPr) {
-	cout << "Ma san pham: " << id << endl;
+	cout << "Ma san pham: " << idProduct << endl;
 	cout << "Thuong hieu: " << brand << endl;
 	cout << "Cong suat: " << power << endl;
 	cout << "Gia 1 san pham: " << price << endl;
-	cout << "Tong gia tien: " << totalPrice(numOfPr, price) << endl;
+	cout << "Gia " << numOfPr << " san pham: " << (price * numOfPr) << " VND" << endl;
+	cout << "Tong gia tien sau VAT: " << totalPrice(numOfPr, price) << " VND" << endl;
 }
 
 long AirCondition::totalPrice(int numberOfProduct, long price) {
-	return price * numberOfProduct;
+	return (price * numberOfProduct) + (price * numberOfProduct * 0.1);
 }
 
 

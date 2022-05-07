@@ -38,6 +38,7 @@ class Shoe {
 	public:
 		void inputData();
 		void showData();
+		float totalPrice(float);
 		void compareHeight(float, float);
 };
 
@@ -75,8 +76,12 @@ void Shoe::showData() {
 	cout << "Ma san pham: " << id << endl;
 	cout << "Thuong hieu: " << brand << endl;
 	cout << "Chat lieu: " << material << endl;
-	cout << "Chieu cao: " << height << endl;
-	cout << "Gia san pham: " << price << endl;
+	cout << "Chieu cao: " << height << "mm." << endl;
+	cout << "Gia san pham: " << price << " VND" << endl;
+	cout << "Gia san pham sau VAT: " << totalPrice(price) << " VND" << endl;
+}
+float Shoe::totalPrice(float p) {
+	return p + p * 0.1;
 }
 
 void Shoe::compareHeight(float h1, float h2) {

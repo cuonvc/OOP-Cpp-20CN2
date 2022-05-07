@@ -33,6 +33,7 @@ class MusicInstrument {
 	public:
 		void inputData();
 		void showData();
+		float totalPrice(float);
 		void comparePrice(float, float);
 };
 
@@ -62,9 +63,13 @@ void MusicInstrument::showData() {
 	cout << "Ma san pham: " << id << endl;
 	cout << "Thuong hieu: " << brand << endl;
 	cout << "Loai san pham: " << type << endl;
-	cout << "Gia san pham: " << price << endl;
+	cout << "Gia san pham: " << price << " VND" << endl;
+	cout << "Gia san pham sau VAT: " << totalPrice(price) << " VND" << endl;
 	
-	
+}
+
+float MusicInstrument::totalPrice(float p) {
+	return p + p * 0.1;
 }
 
 void MusicInstrument::comparePrice(float price1, float price2) {
@@ -98,6 +103,7 @@ int main() {
 	float price1 = musicInstrument1.getPrice();
 	float price2 = musicInstrument2.getPrice();
 	
+	cout << "=========================\n";
 	cout << "So sanh hai san pham: \n";
 	musicInstrument.comparePrice(price1, price2);
 	
