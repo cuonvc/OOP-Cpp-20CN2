@@ -63,13 +63,24 @@ void Book::showData() {
 }
 
 void Book::filterBook(string currentId, Book book[], int len) {
+	int countNotMatch = 0;
 	for (int i = 0; i < len; i++) {
+//		if (book[i].id == currentId) {
+//			cout << "->>>>> Thong tin cuon sach co ma \"" << currentId << "\" la: \n";
+//			book[i].showData();
+//		} else {
+//			count++;
+//		}
 		if (book[i].id != currentId) {
-			cout << "Khong tim thay... :(((";
+			countNotMatch++;
 		} else {
 			cout << "->>>>> Thong tin cuon sach co ma \"" << currentId << "\" la: \n";
 			book[i].showData();
 		}
+	}
+	
+	if (countNotMatch == len) {
+		cout << "->>>>> Khong tim thay thong tin cuon sach co ma \"" << currentId << "\" :(((((";
 	}
 }
 
