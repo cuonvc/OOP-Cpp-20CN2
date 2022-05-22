@@ -34,15 +34,21 @@ Student::~Student(){
 
 void Student::dataInput() {
 	cout << "Ho va ten: ";
-	cin >> fullName;
-	cout << "Tuoi: ";
-	cin >> age;
-	cout << "Diem Toan: ";
-	cin >> toan;
-	cout << "Diem Van: ";
-	cin >> van;
-	cout << "Diem Anh: ";
-	cin >> anh;
+	getline(cin, fullName);
+	do {
+		cout << "Tuoi: ";
+		cin >> age;
+	} while (age < 6);
+	
+	do {
+		cout << "Diem Toan: ";
+		cin >> toan;
+		cout << "Diem Van: ";
+		cin >> van;
+		cout << "Diem Anh: ";
+		cin >> anh;
+	} while (toan < 0 || van < 0 || anh < 0 
+		|| toan > 10 || van > 10 || anh > 10);
 }
 
 float Student::avgCalc(float T, float V, float A) {

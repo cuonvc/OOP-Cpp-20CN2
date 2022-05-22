@@ -32,11 +32,16 @@ class Student {
 
 void Student::inputData() {
 	cout << "Nhap ten: ";
-	cin >> fullName;
-	cout << "Tuoi: ";
-	cin >> age;
-	cout << "Diem trung binh: ";
-	cin >> avg;
+	getline(cin, fullName);
+	do {
+		cout << "Tuoi: ";
+		cin >> age;
+	} while (age < 6);
+	
+	do {
+		cout << "Diem trung binh: ";
+		cin >> avg;
+	} while (avg < 0 && avg > 10);
 }
 
 void Student::showData() {
@@ -76,7 +81,7 @@ int main() {
 	student2.showData();
 	
 	cout << "Nhap tu khoa theo ten: ";
-	cin >> name;
+	getline(cin, name);
 	
 	cout << "Thong tin tim kiem sinh vien: \n";
 	student.studentFilterByName(name, student1, student2);

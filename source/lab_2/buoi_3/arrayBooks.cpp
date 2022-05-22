@@ -44,8 +44,10 @@ Book Book::dataInput() {
 	cin >> book.id;
 	cout << "Ten sach: ";
 	cin >> book.name;
-	cout << "So trang: ";
-	cin >> book.numOfPage;
+	do {
+		cout << "So trang: ";
+		cin >> book.numOfPage;
+	} while (book.numOfPage < 10);
 	cout << "Nha xuat ban: ";
 	cin >> book.publishCompany;
 	
@@ -90,8 +92,10 @@ int main() {
 	string currentId;
 	Book mainBook;
 	
-	cout << "Nhap so cuon sach: ";
-	cin >> length;
+	do {
+		cout << "Nhap so cuon sach: ";
+		cin >> length;
+	} while (length <= 0);
 	
 	Book arrayBooks[length];  //mang cac doi tuong co kieu du lieu la mot Oj
 	
@@ -99,12 +103,12 @@ int main() {
 	for (int i = 0; i < length; i++) {
 		Book book;
 		cout << "Nhap thong tin cuon sach thu " << i + 1 << ":\n";
-		arrayBooks[i] = book.dataInput();
+		book.dataInput();
 	}
 	
 	cout << ">>>>>>>>>>>>>>>>> Thong tin nhung cuon sach vua nhap <<<<<<<<<<<<<<<<<<<\n";
 	for (int i = 0; i < length; i++) {
-		arrayBooks[i].showData();
+		arrayBooks[i] = arrayBooks[i].showData();
 		cout << "----------------\n";
 	}
 	
